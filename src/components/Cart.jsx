@@ -2,6 +2,15 @@ import React from "react";
 import realprice from "../functions/realprice";
 
 const Cart = ({ cartItems, handleAddProduct, handleRemoveProduct }) => {
+  const totalprice = cartItems.reduce(
+    (price, item) =>
+      price +
+      item.quantity *
+        (item.discount === "0"
+          ? item.price
+          : realprice(item.price, item.discount)),
+    0
+  );
   return (
     <div>
       <div>Cart Items</div>
@@ -47,7 +56,7 @@ const Cart = ({ cartItems, handleAddProduct, handleRemoveProduct }) => {
         </table>
       )}
       <hr />
-      <div>Total: $</div>
+      <div>Total: {totalprice} $</div>
     </div>
   );
 };
