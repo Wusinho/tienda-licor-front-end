@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Nav from "./components/Nav.jsx";
 import { useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
-import { isloading, getApi } from "./store/products.js";
+import { getApi } from "./store/products.js";
 import Home from "./components/Home";
 import About from "./components/About";
 import Cart from "./components/Cart";
