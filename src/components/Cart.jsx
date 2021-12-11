@@ -52,11 +52,10 @@ const Cart = ({ cartItems, handleAddProduct, handleRemoveProduct }) => {
                 <td>{realprice(item.price, item.discount) * item.quantity}</td>
               </tr>
             ))}
+            <div>Total: {totalprice} $</div>
           </tbody>
         </table>
       )}
-      <hr />
-      <div>Total: {totalprice} $</div>
     </div>
   );
 };
