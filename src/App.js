@@ -8,25 +8,42 @@ import About from "./components/About";
 import Cart from "./components/Cart";
 
 function App() {
-  const api = useSelector((state) => state.entities.products.list);
+  const api = useSelector(getApi);
+  const [cartItems, setCartItems] = useState([]);
 
-  const [products, setProducts] = useState([]);
-  const loadginStat = useSelector(isloading);
-  const apiResponse = useSelector(getApi);
-
-  useEffect(() => {
-    if (api) {
-      setProducts(api);
+  const handleAddProduct = (product) => {
+    const productExist = cartItems.find((item) => item.id === product.id);
+    if (productExist) {
+      setCartItems(
+        cartItems.map((item) =>
+          item.id === product.id
+            ? {
+                ...productExist,
+                quantity: productExist.quantity + 1,
+              }
+            : item
+        )
+      );
+    } else {
+      setCartItems([...cartItems, { ...product, quantity: 1 }]);
     }
-  });
+  };
 
   return (
     <div>
       <Nav />
       <Routes>
-        <Route path="/" element={<Home api={api} />} />
+        <Route
+          path="/"
+          element={<Home api={api} handleAddProduct={handleAddProduct} />}
+        />
         <Route path="/about" element={<About />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route
+          path="/cart"
+          element={
+            <Cart cartItems={cartItems} handleAddProduct={handleAddProduct} />
+          }
+        />
       </Routes>
     </div>
   );

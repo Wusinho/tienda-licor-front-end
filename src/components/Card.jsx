@@ -1,6 +1,6 @@
 import React from "react";
 
-const Card = ({ item }) => {
+const Card = ({ item, handleAddProduct }) => {
   return (
     <div className="card">
       {item.url_image === "" ? (
@@ -21,7 +21,12 @@ const Card = ({ item }) => {
         <p className="card-text"></p>
       </div>
       <div className="card-footer bg-transparent ">
-        <button className="btn btn-primary">Add to cart</button>
+        <button
+          className="btn btn-primary"
+          onClick={() => handleAddProduct(item)}
+        >
+          Add to cart
+        </button>
       </div>
     </div>
   );
