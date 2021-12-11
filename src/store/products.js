@@ -23,6 +23,8 @@ export const productSlice = createSlice({
     },
   },
 });
+export const isloading = (state) => state.entities.products.loading;
+export const getApi = (state) => state.entities.products.list;
 
 export const { productsReceived, productsRequested, productsRequestFailed } =
   productSlice.actions;
