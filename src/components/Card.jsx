@@ -1,4 +1,5 @@
 import React from "react";
+import realprice from "../functions/realprice";
 
 const Card = ({ item, handleAddProduct }) => {
   return (
@@ -16,7 +17,12 @@ const Card = ({ item, handleAddProduct }) => {
         <h5 className="card-title"> {item.name}</h5>
         <h5 className="card-title">price: {item.price} $</h5>
         {item.discount !== "0" && (
-          <h5 className="card-title">discount: {item.discount}%</h5>
+          <>
+            <h5 className="card-title">discount: {item.discount}%</h5>
+            <h3 className="card-title">
+              on Sale: {realprice(item.price, item.discount)}$
+            </h3>
+          </>
         )}
         <p className="card-text"></p>
       </div>
