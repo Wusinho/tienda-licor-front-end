@@ -1,15 +1,25 @@
 import React from "react";
+import Nav from "./components/Nav.jsx";
 import { Provider } from "react-redux";
+import { Route, Routes } from "react-router-dom";
+import Home from "./components/Home";
+import About from "./components/About";
 import store from "./store/configureStore";
 import { loadProducts } from "./store/products";
 
-store.dispatch(loadProducts());
+// store.dispatch(loadProducts());
 
 function App() {
   return (
-    <Provider store={store}>
-      <div className="App">Hello</div>;
-    </Provider>
+    <div>
+      <Provider store={store}>
+        <Nav />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </Provider>
+    </div>
   );
 }
 
