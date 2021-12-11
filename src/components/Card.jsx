@@ -3,17 +3,25 @@ import React from "react";
 const Card = ({ item }) => {
   return (
     <div className="card">
-      <img src={item.url_image} className="card-img-top" alt="..." />
+      {item.url_image === "" ? (
+        <img
+          src="https://picsum.photos/200"
+          className="card-img-top"
+          alt="..."
+        />
+      ) : (
+        <img src={item.url_image} className="card-img-top" alt="..." />
+      )}
       <div className="card-body">
-        <h5 className="card-title">{item.name}</h5>
-        <h5 className="card-title">{item.price}</h5>
-        <h5 className="card-title">{item.discount}</h5>
+        <h5 className="card-title"> {item.name}</h5>
+        <h5 className="card-title">price: {item.price}</h5>
+        {item.discount !== "0" && (
+          <h5 className="card-title">discount: {item.discount}%</h5>
+        )}
         <p className="card-text"></p>
-        <div className="card-footer">
-          {/* <a href="#" className="btn btn-primary">
-            Go somewhere
-          </a> */}
-        </div>
+      </div>
+      <div className="card-footer bg-transparent ">
+        <button className="btn btn-primary">Add to cart</button>
       </div>
     </div>
   );
