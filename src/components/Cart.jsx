@@ -31,7 +31,7 @@ const Cart = ({ cartItems, handleAddProduct, handleRemoveProduct }) => {
                   </button>
                   <button
                     className="btn btn-primary mx-1"
-                    onClick={handleRemoveProduct}
+                    onClick={() => handleRemoveProduct(item)}
                   >
                     Remove
                   </button>
