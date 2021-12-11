@@ -14,7 +14,7 @@ const Card = ({ item, handleAddProduct }) => {
       )}
       <div className="card-body">
         <h5 className="card-title"> {item.name}</h5>
-        <h5 className="card-title">price: {item.price}</h5>
+        <h5 className="card-title">price: {item.price} $</h5>
         {item.discount !== "0" && (
           <h5 className="card-title">discount: {item.discount}%</h5>
         )}

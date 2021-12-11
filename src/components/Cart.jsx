@@ -1,13 +1,13 @@
 import React from "react";
 
-const Cart = ({ cartItems }) => {
+const Cart = ({ cartItems, handleAddProduct, handleRemoveProduct }) => {
   return (
     <div>
       <div>Cart Items</div>
       {cartItems.length === 0 ? (
         <div>No items are added</div>
       ) : (
-        <table class="table">
+        <table className="table">
           <thead>
             <tr>
               <th scope="col">Name</th>
@@ -23,8 +23,18 @@ const Cart = ({ cartItems }) => {
               <tr key={item.id}>
                 <td>{item.name}</td>
                 <td>
-                  <button className="btn btn-primary mx-2">Add</button>
-                  <button className="btn btn-primary">Remove</button>
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => handleAddProduct(item)}
+                  >
+                    Add
+                  </button>
+                  <button
+                    className="btn btn-primary mx-1"
+                    onClick={handleRemoveProduct}
+                  >
+                    Remove
+                  </button>
                 </td>
                 <td>{item.quantity}</td>
                 <td>{item.discount}</td>
