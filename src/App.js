@@ -44,6 +44,10 @@ function App() {
     }
   };
 
+  const handleCartClearence = () => {
+    setCartItems([]);
+  };
+
   return (
     <div>
       <Nav />
@@ -60,6 +64,7 @@ function App() {
               cartItems={cartItems}
               handleAddProduct={handleAddProduct}
               handleRemoveProduct={handleRemoveProduct}
+              handleCartClearence={handleCartClearence}
             />
           }
         />
