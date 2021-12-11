@@ -29,11 +29,11 @@ export const { productsReceived, productsRequested, productsRequestFailed } =
 
 export default productSlice.reducer;
 
-// const url = "/champs";
+const url = "http://localhost:4000/products";
 
 export const loadProducts = () =>
   apiCallBegan({
-    // url,
+    url,
     onStart: productsRequested.type,
     onSuccess: productsReceived.type,
     onError: productsRequestFailed.type,
