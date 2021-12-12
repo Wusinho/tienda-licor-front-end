@@ -1,107 +1,81 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 const Search = () => {
+  const [checkedItems, setCheckedItems] = useState({});
+
+  const checkboxes = [
+    {
+      name: "bebida energetica",
+      key: "1",
+      label: "Bebida Energetica",
+    },
+    {
+      name: "pisco",
+      key: "2",
+      label: "Pisco",
+    },
+    {
+      name: "ron",
+      key: "3",
+      label: "Ron",
+    },
+    {
+      name: "bebida",
+      key: "4",
+      label: "Bebida",
+    },
+    {
+      name: "snack",
+      key: "5",
+      label: "Snack",
+    },
+    {
+      name: "cerveza",
+      key: "6",
+      label: "Ceverza",
+    },
+    {
+      name: "vodka",
+      key: "7",
+      label: "Vodka",
+    },
+  ];
+
+  // const handleChange = (e) => {
+  //   setData({
+  //     [e.target.name]: data.map((checkbox, i) => {
+  //       return i !== e.target.name
+  //         ? [e.target.name]
+  //         : { ...data, [e.target.value]: !e.target.value };
+  //     }),
+  //   });
+  // };
+  const handleChange = (e) => {
+    // updating an object instead of a Map
+    setCheckedItems({
+      ...checkedItems,
+      [e.target.name]: e.target.checked,
+    });
+  };
+  console.log(checkedItems);
+
   return (
     <div className="">
       <div className="row">
         <div className="col-md-3 ">
-          <form class="row g-3  p-4">
-            <div class="col-12">
-              <label for="inputEmail4" class="form-label">
-                Name
+          <form className="row g-3  p-4">
+            {checkboxes.map((item) => (
+              <label key={item.key}>
+                {item.label}
+                <input
+                  onChange={handleChange}
+                  type="checkbox"
+                  name={item.name}
+                  checked={checkedItems[item.name]}
+                  defaultValue={false}
+                />
               </label>
-              <input type="email" class="form-control" id="inputEmail4" />
-            </div>
-
-            <div class="col-12">
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  id="gridCheck"
-                />
-                <label class="form-check-label" for="gridCheck">
-                  Bebida Energetica
-                </label>
-              </div>
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  id="gridCheck"
-                />
-                <label class="form-check-label" for="gridCheck">
-                  Pisco
-                </label>
-              </div>
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  id="gridCheck"
-                />
-                <label class="form-check-label" for="gridCheck">
-                  Ron
-                </label>
-              </div>
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  id="gridCheck"
-                />
-                <label class="form-check-label" for="gridCheck">
-                  Bebida
-                </label>
-              </div>
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  id="gridCheck"
-                />
-                <label class="form-check-label" for="gridCheck">
-                  Snack
-                </label>
-              </div>
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  id="gridCheck"
-                />
-                <label class="form-check-label" for="gridCheck">
-                  Cerveza
-                </label>
-              </div>
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  id="gridCheck"
-                />
-                <label class="form-check-label" for="gridCheck">
-                  Vodka
-                </label>
-              </div>
-            </div>
-            <div class="col-12">
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  id="gridCheck"
-                />
-                <label class="form-check-label" for="gridCheck">
-                  Discount
-                </label>
-              </div>
-            </div>
-            <div class="col-12">
-              <button type="submit" class="btn btn-primary">
-                Submit
-              </button>
-            </div>
+            ))}
           </form>
         </div>
         <div className="col">Show Results</div>
