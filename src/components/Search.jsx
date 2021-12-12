@@ -78,7 +78,9 @@ const Search = ({ handleAddProduct }) => {
               <p className="text-muted">Choose a value</p>
 
               <div>
-                <span className="amount">${checkedItems["price"] * 1000}</span>{" "}
+                <span className="amount">
+                  Max price: ${checkedItems["price"] * 1000}
+                </span>{" "}
               </div>
               <div className="mt-2">
                 <input
