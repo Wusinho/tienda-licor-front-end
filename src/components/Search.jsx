@@ -23,11 +23,9 @@ const Search = () => {
   const handleChange = (e) => {
     setCheckedItems({
       ...checkedItems,
-      [e.target.name]: e.target.checked,
+      [e.target.name]: e.target.value,
     });
   };
-  console.log(checkedItems);
-
   return (
     <div className="">
       <div className="row">
@@ -42,7 +40,7 @@ const Search = () => {
                     type="checkbox"
                     name={item.name}
                     checked={checkedItems[item.name]}
-                    defaultValue={false}
+                    value={checkedItems[item.name]}
                   />
                 </label>
               ))}
