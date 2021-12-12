@@ -13,6 +13,7 @@ const Search = ({ handleAddProduct }) => {
   const dispatch = useDispatch();
   const [checkedItems, setCheckedItems] = useState({
     "bebida energetica": false,
+    name: "",
     pisco: false,
     ron: false,
     bebida: false,
@@ -20,7 +21,7 @@ const Search = ({ handleAddProduct }) => {
     cerveza: false,
     vodka: false,
     discount: true,
-    price: 9,
+    price: 20,
   });
   const categories = useSelector(getCategories);
   const search = useSelector(getSearch);
@@ -49,6 +50,17 @@ const Search = ({ handleAddProduct }) => {
       <div className="row">
         <div className="col-md-3 ">
           <form className="row g-3  p-4">
+            <div class="mb-3">
+              <label for="formGroupExampleInput" class="form-label">
+                Example label
+              </label>
+              <input
+                type="text"
+                class="form-control"
+                id="formGroupExampleInput"
+                placeholder="Example input placeholder"
+              />
+            </div>
             {categories.length > 0 &&
               categories.map((item) => (
                 <label key={item.id}>
@@ -88,14 +100,14 @@ const Search = ({ handleAddProduct }) => {
                   className="form-range"
                   name={checkedItems["price"]}
                   min="0"
-                  max="9"
+                  max="20"
                   step="1"
                   id="customRange3"
                   onChange={handleChangePrice}
                 />
                 <div className="d-flex justify-content-between">
                   <small className="text-muted">$0</small>{" "}
-                  <small className="text-muted">$9000</small>{" "}
+                  <small className="text-muted">$20,000</small>{" "}
                 </div>
               </div>
             </div>
@@ -103,14 +115,17 @@ const Search = ({ handleAddProduct }) => {
         </div>
         <div className="col">
           <div className="container">
+            {search.length > 0 && <h1>{search.length} matches</h1>}
             <div className="row row-cols-1 row-cols-md-3 g-4">
               {search.length > 0 ? (
                 search.map((item) => (
-                  <Card
-                    key={item.id}
-                    item={item}
-                    handleAddProduct={handleAddProduct}
-                  />
+                  <div>
+                    <Card
+                      key={item.id}
+                      item={item}
+                      handleAddProduct={handleAddProduct}
+                    />
+                  </div>
                 ))
               ) : (
                 <Nothing />
