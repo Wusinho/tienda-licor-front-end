@@ -15,11 +15,11 @@ const search =
 
     let string = "";
     Object.entries(params).forEach(
-      ([key, value]) => (string += `${key.replace(/\s+/g, "")}=${value}&`)
+      ([key, value]) => (string += `${key}=${value}&`)
     );
     const getSearch = url3 + string;
     axios
-      .get(getSearch, params, { mode: "cors" })
+      .get(getSearch, { search: params }, { mode: "cors" })
       .then((response) => {
         dispatch(actions.searchCallSuccess(response.data));
         if (onSuccess) dispatch({ type: onSuccess, payload: response.data });
