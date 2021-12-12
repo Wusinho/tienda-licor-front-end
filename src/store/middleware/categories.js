@@ -16,10 +16,12 @@ const categories =
     axios
       .get(url, { mode: "cors" })
       .then((response) => {
+        console.log(response);
         dispatch(actions.categoriesCallSuccess(response.data));
         if (onSuccess) dispatch({ type: onSuccess, payload: response.data });
       })
       .catch((error) => {
+        console.log(error.message);
         dispatch(actions.categoriesCallFailed(error.message));
         if (onError) dispatch({ type: onError, payload: error.message });
       });

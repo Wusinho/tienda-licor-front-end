@@ -55,7 +55,6 @@ const url2 = "http://localhost:4000/categories";
 export const loadProducts = () =>
   apiCallBegan({
     url,
-    url2,
     onStart: productsRequested.type,
     onSuccess: productsReceived.type,
     onError: productsRequestFailed.type,

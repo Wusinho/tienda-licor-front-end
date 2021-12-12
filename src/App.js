@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Nav from "./components/Nav.jsx";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
-import { getApi } from "./store/products.js";
+import { getApi, loadCategories } from "./store/products.js";
 import Home from "./components/Home";
 import Search from "./components/Search";
 import Cart from "./components/Cart";
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(loadCategories());
+  }, [dispatch]);
   const api = useSelector(getApi);
   const [cartItems, setCartItems] = useState([]);
 
