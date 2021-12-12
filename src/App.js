@@ -67,7 +67,10 @@ function App() {
             />
           }
         />
-        <Route path="/search" element={<Search />} />
+        <Route
+          path="/search"
+          element={<Search handleAddProduct={handleAddProduct} />}
+        />
         <Route
           path="/cart"
           element={

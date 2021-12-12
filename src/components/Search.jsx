@@ -9,7 +9,7 @@ import {
 import Nothing from "./Nothing";
 import Card from "./Card";
 
-const Search = () => {
+const Search = ({ handleAddProduct }) => {
   const dispatch = useDispatch();
   const [checkedItems, setCheckedItems] = useState({
     "bebida energetica": false,
@@ -70,7 +70,13 @@ const Search = () => {
           <div className="container">
             <div className="row row-cols-1 row-cols-md-3 g-4">
               {search.length > 0 ? (
-                search.map((item) => <Card key={item.id} item={item} />)
+                search.map((item) => (
+                  <Card
+                    key={item.id}
+                    item={item}
+                    handleAddProduct={handleAddProduct}
+                  />
+                ))
               ) : (
                 <Nothing />
               )}
