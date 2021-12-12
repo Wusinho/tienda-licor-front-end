@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import { getApi } from "./store/products.js";
 import Home from "./components/Home";
-import About from "./components/About";
+import Search from "./components/Search";
 import Cart from "./components/Cart";
 
 function App() {
@@ -62,7 +62,7 @@ function App() {
             />
           }
         />
-        <Route path="/about" element={<About />} />
+        <Route path="/search" element={<Search />} />
         <Route
           path="/cart"
           element={
