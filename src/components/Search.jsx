@@ -4,7 +4,10 @@ import {
   loadCategories,
   getCategories,
   requestSearch,
+  getSearch,
 } from "../store/products";
+import Loading from "./Loading.jsx";
+import Card from "./Card";
 
 const Search = () => {
   const dispatch = useDispatch();
@@ -19,6 +22,7 @@ const Search = () => {
     discount: false,
   });
   const categories = useSelector(getCategories);
+  const search = useSelector(getSearch);
 
   useEffect(() => {
     dispatch(loadCategories());
@@ -57,7 +61,17 @@ const Search = () => {
             </label>
           </form>
         </div>
-        <div className="col">Show Results</div>
+        <div className="col">
+          <div className="container">
+            <div className="row row-cols-1 row-cols-md-3 g-4">
+              {search.length > 0 ? (
+                search.map((item) => <Card key={item.id} item={item} />)
+              ) : (
+                <Loading />
+              )}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

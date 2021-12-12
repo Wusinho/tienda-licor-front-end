@@ -50,6 +50,7 @@ export const productSlice = createSlice({
 export const isloading = (state) => state.entities.products.loading;
 export const getApi = (state) => state.entities.products.list;
 export const getCategories = (state) => state.entities.products.categories;
+export const getSearch = (state) => state.entities.products.search;
 
 export const {
   productsReceived,
