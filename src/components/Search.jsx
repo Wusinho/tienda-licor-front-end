@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { loadCategories, getCategories } from "../store/products";
+import {
+  loadCategories,
+  getCategories,
+  requestSearch,
+} from "../store/products";
 
 const Search = () => {
   const dispatch = useDispatch();
@@ -23,9 +27,13 @@ const Search = () => {
   const handleChange = (e) => {
     setCheckedItems({
       ...checkedItems,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.checked,
     });
   };
+
+  useEffect(() => {
+    dispatch(requestSearch(checkedItems));
+  }, [dispatch, checkedItems]);
   return (
     <div className="">
       <div className="row">
@@ -40,7 +48,6 @@ const Search = () => {
                     type="checkbox"
                     name={item.name}
                     checked={checkedItems[item.name]}
-                    value={checkedItems[item.name]}
                   />
                 </label>
               ))}

@@ -8,13 +8,18 @@ const search =
   (action) => {
     if (action.type !== actions.searchCallBegan.type) return next(action);
 
-    const { params, url2, onStart, onSuccess, onError } = action.payload;
+    const { params, url3, onStart, onSuccess, onError } = action.payload;
 
     if (onStart) dispatch({ type: onStart });
     next(action);
 
+    let string = "";
+    Object.entries(params).forEach(
+      ([key, value]) => (string += `${key.replace(/\s+/g, "")}=${value}&`)
+    );
+    const getSearch = url3 + string;
     axios
-      .get(url2, params, { mode: "cors" })
+      .get(getSearch, params, { mode: "cors" })
       .then((response) => {
         dispatch(actions.searchCallSuccess(response.data));
         if (onSuccess) dispatch({ type: onSuccess, payload: response.data });

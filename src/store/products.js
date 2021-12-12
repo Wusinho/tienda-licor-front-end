@@ -38,7 +38,7 @@ export const productSlice = createSlice({
       products.loading = true;
     },
     searchReceived: (products, action) => {
-      products.categories = action.payload;
+      products.search = action.payload;
       products.loading = false;
     },
     searchRequestFailed: (products, action) => {
@@ -67,6 +67,7 @@ export default productSlice.reducer;
 
 const url = "http://localhost:4000/products";
 const url2 = "http://localhost:4000/categories";
+const url3 = "http://localhost:4000/products?search=";
 
 export const loadProducts = () =>
   apiCallBegan({
@@ -84,10 +85,10 @@ export const loadCategories = () =>
     onError: categoriesRequestFailed.type,
   });
 
-export const loadSearch = (params) =>
+export const requestSearch = (params) =>
   searchCallBegan({
     params,
-    url2,
+    url3,
     onStart: searchRequested.type,
     onSuccess: searchReceived.type,
     onError: searchRequestFailed.type,
