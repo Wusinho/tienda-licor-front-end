@@ -50,7 +50,7 @@ function App() {
 
   return (
     <div>
-      <Nav />
+      <Nav cartItems={cartItems} />
       <Routes>
         <Route
           path="/"

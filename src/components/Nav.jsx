@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Nav = () => {
+const Nav = ({ cartItems }) => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light p-3">
       <div className="container-fluid">
         <Link to="/" className="navbar-brand">
           Home
@@ -16,8 +16,11 @@ const Nav = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/cart" className="nav-link">
+              <Link to="/cart" className="nav-link position-relative">
                 Cart
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                  {cartItems.length}
+                </span>
               </Link>
             </li>
           </ul>
