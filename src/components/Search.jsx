@@ -41,7 +41,6 @@ const Search = ({ handleAddProduct }) => {
       price: e.target.value,
     });
   };
-  console.log(checkedItems);
   useEffect(() => {
     dispatch(requestSearch(checkedItems));
   }, [dispatch, checkedItems]);
