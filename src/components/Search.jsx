@@ -1,8 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { loadCategories } from "../store/products";
 
 const Search = () => {
+  const dispatch = useDispatch();
   const [checkedItems, setCheckedItems] = useState({});
 
+  useEffect(() => {
+    dispatch(loadCategories());
+  }, [dispatch]);
   const checkboxes = [
     {
       name: "bebida energetica",

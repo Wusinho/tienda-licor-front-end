@@ -2,18 +2,19 @@ import React, { useState, useEffect } from "react";
 import Nav from "./components/Nav.jsx";
 import { useSelector, useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
-import { getApi, loadCategories } from "./store/products.js";
+import { getApi, loadProducts } from "./store/products.js";
 import Home from "./components/Home";
 import Search from "./components/Search";
 import Cart from "./components/Cart";
 
 function App() {
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(loadCategories());
-  }, [dispatch]);
   const api = useSelector(getApi);
   const [cartItems, setCartItems] = useState([]);
+
+  useEffect(() => {
+    dispatch(loadProducts());
+  }, [dispatch]);
 
   const handleAddProduct = (product) => {
     const productExist = cartItems.find((item) => item.id === product.id);
