@@ -6,7 +6,7 @@ import {
   requestSearch,
   getSearch,
 } from "../store/products";
-import Loading from "./Loading.jsx";
+import Nothing from "./Nothing";
 import Card from "./Card";
 
 const Search = () => {
@@ -19,7 +19,7 @@ const Search = () => {
     snack: false,
     cerveza: false,
     vodka: false,
-    discount: false,
+    discount: true,
   });
   const categories = useSelector(getCategories);
   const search = useSelector(getSearch);
@@ -57,7 +57,12 @@ const Search = () => {
               ))}
             <label>
               discount
-              <input onChange={handleChange} type="checkbox" name="discount" />
+              <input
+                onChange={handleChange}
+                type="checkbox"
+                name="discount"
+                checked={checkedItems["discount"]}
+              />
             </label>
           </form>
         </div>
@@ -67,7 +72,7 @@ const Search = () => {
               {search.length > 0 ? (
                 search.map((item) => <Card key={item.id} item={item} />)
               ) : (
-                <Loading />
+                <Nothing />
               )}
             </div>
           </div>
