@@ -12,6 +12,7 @@ const Search = () => {
     snack: false,
     cerveza: false,
     vodka: false,
+    discount: false,
   });
   const categories = useSelector(getCategories);
 
@@ -45,6 +46,10 @@ const Search = () => {
                   />
                 </label>
               ))}
+            <label>
+              discount
+              <input onChange={handleChange} type="checkbox" name="discount" />
+            </label>
           </form>
         </div>
         <div className="col">Show Results</div>
