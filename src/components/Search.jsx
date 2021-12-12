@@ -20,6 +20,7 @@ const Search = ({ handleAddProduct }) => {
     cerveza: false,
     vodka: false,
     discount: true,
+    price: 9,
   });
   const categories = useSelector(getCategories);
   const search = useSelector(getSearch);
@@ -34,7 +35,13 @@ const Search = ({ handleAddProduct }) => {
       [e.target.name]: e.target.checked,
     });
   };
-
+  const handleChangePrice = (e) => {
+    setCheckedItems({
+      ...checkedItems,
+      price: e.target.value,
+    });
+  };
+  console.log(checkedItems);
   useEffect(() => {
     dispatch(requestSearch(checkedItems));
   }, [dispatch, checkedItems]);
@@ -65,6 +72,33 @@ const Search = ({ handleAddProduct }) => {
               />
             </label>
           </form>
+
+          <div className="container d-flex justify-content-center ">
+            <div className="card p-3">
+              <h5 className="font-weight-bold">Setup your pricing</h5>
+              <p className="text-muted">Choose a value</p>
+
+              <div>
+                <span className="amount">${checkedItems["price"] * 1000}</span>{" "}
+              </div>
+              <div className="mt-2">
+                <input
+                  type="range"
+                  className="form-range"
+                  name={checkedItems["price"]}
+                  min="0"
+                  max="9"
+                  step="1"
+                  id="customRange3"
+                  onChange={handleChangePrice}
+                />
+                <div className="d-flex justify-content-between">
+                  <small className="text-muted">$0</small>{" "}
+                  <small className="text-muted">$9000</small>{" "}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div className="col">
           <div className="container">
