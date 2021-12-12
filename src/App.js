@@ -54,7 +54,13 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<Home api={api} handleAddProduct={handleAddProduct} />}
+          element={
+            <Home
+              api={api}
+              handleAddProduct={handleAddProduct}
+              itemsPerPage={12}
+            />
+          }
         />
         <Route path="/about" element={<About />} />
         <Route

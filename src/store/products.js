@@ -1,5 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from "@reduxjs/toolkit";
+import { act } from "react-dom/cjs/react-dom-test-utils.production.min";
 import { apiCallBegan } from "./api";
 
 export const productSlice = createSlice({
@@ -9,6 +10,7 @@ export const productSlice = createSlice({
     list: {},
     category: "All",
     selected: {},
+    error: "",
   },
   reducers: {
     productsRequested: (products) => {
@@ -18,7 +20,8 @@ export const productSlice = createSlice({
       products.list = action.payload;
       products.loading = false;
     },
-    productsRequestFailed: (products) => {
+    productsRequestFailed: (products, action) => {
+      products.error = action.payload;
       products.loading = false;
     },
   },
