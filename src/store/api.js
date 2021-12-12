@@ -7,3 +7,7 @@ export const apiCallFailed = createAction("api/callFailed");
 export const categoriesCallBegan = createAction("categories/callBegan");
 export const categoriesCallSuccess = createAction("categories/callSuccess");
 export const categoriesCallFailed = createAction("categories/callFailed");
+
+export const searchCallBegan = createAction("search/callBegan");
+export const searchCallSuccess = createAction("search/callSuccess");
+export const searchCallFailed = createAction("search/callFailed");

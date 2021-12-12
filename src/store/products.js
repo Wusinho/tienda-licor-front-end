@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from "@reduxjs/toolkit";
-import { apiCallBegan, categoriesCallBegan } from "./api";
+import { apiCallBegan, categoriesCallBegan, searchCallBegan } from "./api";
 
 export const productSlice = createSlice({
   name: "products",
@@ -9,6 +9,7 @@ export const productSlice = createSlice({
     list: {},
     categories: {},
     error: "",
+    search: {},
   },
   reducers: {
     productsRequested: (products) => {
@@ -33,6 +34,17 @@ export const productSlice = createSlice({
       products.error = action.payload;
       products.loading = false;
     },
+    searchRequested: (products) => {
+      products.loading = true;
+    },
+    searchReceived: (products, action) => {
+      products.categories = action.payload;
+      products.loading = false;
+    },
+    searchRequestFailed: (products, action) => {
+      products.error = action.payload;
+      products.loading = false;
+    },
   },
 });
 export const isloading = (state) => state.entities.products.loading;
@@ -46,6 +58,9 @@ export const {
   categoriesRequested,
   categoriesReceived,
   categoriesRequestFailed,
+  searchRequested,
+  searchReceived,
+  searchRequestFailed,
 } = productSlice.actions;
 
 export default productSlice.reducer;
@@ -67,4 +82,13 @@ export const loadCategories = () =>
     onStart: categoriesRequested.type,
     onSuccess: categoriesReceived.type,
     onError: categoriesRequestFailed.type,
+  });
+
+export const loadSearch = (params) =>
+  searchCallBegan({
+    params,
+    url2,
+    onStart: searchRequested.type,
+    onSuccess: searchReceived.type,
+    onError: searchRequestFailed.type,
   });
