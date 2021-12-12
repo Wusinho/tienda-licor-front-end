@@ -1,6 +1,5 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from "@reduxjs/toolkit";
-import { act } from "react-dom/cjs/react-dom-test-utils.production.min";
 import { apiCallBegan } from "./api";
 
 export const productSlice = createSlice({
