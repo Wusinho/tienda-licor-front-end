@@ -9,11 +9,7 @@ const Cart = ({
 }) => {
   const totalprice = cartItems.reduce(
     (price, item) =>
-      price +
-      item.quantity *
-        (item.discount === "0"
-          ? item.price
-          : realprice(item.price, item.discount)),
+      price + item.quantity * realprice(item.price, item.discount),
     0
   );
   return (
@@ -54,7 +50,7 @@ const Cart = ({
                   </td>
                   <td>{item.quantity}</td>
                   <td>{item.discount}</td>
-                  <td>{item.price}</td>
+                  <td>{realprice(item.price, item.discount)}</td>
                   <td>
                     {realprice(item.price, item.discount) * item.quantity}
                   </td>
