@@ -11,51 +11,54 @@ export const Home = ({ api, handleAddProduct, itemsPerPage }) => {
   useEffect(() => {
     if (api.length > 0) {
       const endOffset = itemOffset + itemsPerPage;
-      console.log(`Loading items from ${itemOffset} to ${endOffset}`);
       setCurrentItems(api.slice(itemOffset, endOffset));
       setPageCount(Math.ceil(api.length / itemsPerPage));
     }
   }, [itemOffset, itemsPerPage, api]);
 
-  const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % api.length;
+  const handlePageClick = (e) => {
+    const newOffset = (e.selected * itemsPerPage) % api.length;
     setItemOffset(newOffset);
   };
   return (
     <>
-      <div className="row row-cols-1 row-cols-md-4 g-4">
-        {currentItems.length > 0 ? (
-          currentItems.map((item) => (
-            <Card
-              key={item.id}
-              item={item}
-              handleAddProduct={handleAddProduct}
-            />
-          ))
-        ) : (
-          <Loading />
-        )}
+      <div className="container">
+        <div className="row row-cols-1 row-cols-md-3 g-4">
+          {currentItems.length > 0 ? (
+            currentItems.map((item) => (
+              <Card
+                key={item.id}
+                item={item}
+                handleAddProduct={handleAddProduct}
+              />
+            ))
+          ) : (
+            <Loading />
+          )}
+        </div>
       </div>
-      <ReactPaginate
-        nextLabel="next >"
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={3}
-        marginPagesDisplayed={2}
-        pageCount={pageCount}
-        previousLabel="< previous"
-        pageClassName="page-item"
-        pageLinkClassName="page-link"
-        previousClassName="page-item"
-        previousLinkClassName="page-link"
-        nextClassName="page-item"
-        nextLinkClassName="page-link"
-        breakLabel="..."
-        breakClassName="page-item"
-        breakLinkClassName="page-link"
-        containerClassName="pagination"
-        activeClassName="active"
-        renderOnZeroPageCount={null}
-      />
+      <div className="mt-5 d-flex justify-content-center">
+        <ReactPaginate
+          nextLabel="next >"
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={3}
+          marginPagesDisplayed={2}
+          pageCount={pageCount}
+          previousLabel="< previous"
+          pageClassName="page-item"
+          pageLinkClassName="page-link"
+          previousClassName="page-item"
+          previousLinkClassName="page-link"
+          nextClassName="page-item"
+          nextLinkClassName="page-link"
+          breakLabel="..."
+          breakClassName="page-item"
+          breakLinkClassName="page-link"
+          containerClassName="pagination"
+          activeClassName="active"
+          renderOnZeroPageCount={null}
+        />
+      </div>
     </>
   );
 };
