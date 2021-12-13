@@ -70,16 +70,6 @@ const Search = ({ handleAddProduct }) => {
                 />
               </div>
               {categories.map((item) => (
-                // <label key={item.id}>
-                //   {item.name}
-                //   <input
-                //     onChange={handleChange}
-                //     type="checkbox"
-                //     name={item.name}
-                //     checked={checkedItems[item.name]}
-                //   />
-                // </label>
-
                 <div class="mb-3 form-check" key={item.id}>
                   <input
                     type="checkbox"
@@ -94,16 +84,6 @@ const Search = ({ handleAddProduct }) => {
                   </label>
                 </div>
               ))}
-              {/* <label>
-                discount
-                <input
-                  onChange={handleChange}
-                  type="checkbox"
-                  name="discount"
-                  checked={checkedItems["discount"]}
-                />
-              </label> */}
-
               <div class="mb-3 form-check">
                 <input
                   type="checkbox"
@@ -147,7 +127,9 @@ const Search = ({ handleAddProduct }) => {
           </div>
           <div className="col-md-9 p-0">
             <div className="container p-0">
-              {search.length > 0 && <h1>{search.length} matches</h1>}
+              {search.length === 1 && <h1>{search.length} match</h1>}
+              {search.length > 1 && <h1>{search.length} matches</h1>}
+
               <div className="row row-cols-1 row-cols-md-3 g-4 p-0">
                 {search.length > 0 ? (
                   search.map((item) => (
