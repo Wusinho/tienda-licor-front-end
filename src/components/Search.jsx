@@ -53,13 +53,13 @@ const Search = ({ handleAddProduct }) => {
     dispatch(requestSearch(checkedItems));
   }, [dispatch, checkedItems]);
   return (
-    <div className="">
+    <div className="mx-5">
       {categories.length > 0 ? (
         <div className="row">
           <div className="col-md-3 ">
-            <form className="row g-3  p-4">
+            <form className="row g-3 mt-5 mx-4">
               <div className="mb-3">
-                <label className="form-label">Search for a drink:</label>
+                <label className="form-label">Find </label>
                 <input
                   type="text"
                   className="form-control"
@@ -89,12 +89,9 @@ const Search = ({ handleAddProduct }) => {
                   checked={checkedItems["discount"]}
                 />
               </label>
-            </form>
 
-            <div className="container d-flex justify-content-center ">
-              <div className="card p-3">
-                <h5 className="font-weight-bold">Setup your pricing</h5>
-                <p className="text-muted">Choose a value</p>
+              <div className="card p-2">
+                <p className="text-muted">Search by price</p>
 
                 <div>
                   <span className="amount">
@@ -118,12 +115,12 @@ const Search = ({ handleAddProduct }) => {
                   </div>
                 </div>
               </div>
-            </div>
+            </form>
           </div>
-          <div className="col">
+          <div className="col-md-9 p-0">
             <div className="container p-0">
               {search.length > 0 && <h1>{search.length} matches</h1>}
-              <div className="row row-cols-1 row-cols-md-3 g-4">
+              <div className="row row-cols-1 row-cols-md-3 g-4 p-0">
                 {search.length > 0 ? (
                   search.map((item) => (
                     <Card
