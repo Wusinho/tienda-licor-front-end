@@ -1,23 +1,18 @@
-# React-Redux Booking-Coach-App
+# Online Store - bsale
 
-# Final Capstone Project.
-
-This proyect is a booking-coach application, for the game League of Legends. The front-end was built using React-Redux and for the back-end Rails-api.
-
-It has a home page with some of the proyect's details, on the navbar it is possible to see all the champions in the game and loop through their roles with specific information on each champion.
-To set up an appointment the user must register, the "Appointment" page will render once the user is logged in.
+This is the front-end project for the Ruby on Rails back-end. Here the API is rendered. The items are rendered from the requests done to the back-end. It is possible to search by categories, price, and name. Additionally, you can add items to the cart, erase them one by one, or the whole cart.
 
 The link for the
-[back end](https://github.com/Wusinho/booking-backend-api/tree/Dev-feature-heroku-deploy)
+[Netlify-Deployment](https://github.com/Wusinho/booking-backend-api/tree/Dev-feature-heroku-deploy)
 
 ## WebSite Sections
 
-- Homepage, there is a small description of the project.
-  ![image](./src/assets/HomePage.png)
-- Champions Catalogue, here is where the api is rendering.
-  ![image](./src/assets/Catalogue.png)
-- Single page with the selected item information.
-  ![image](./src/assets/Selected.png)
+- Homepage, all items are render from the api.
+  ![image](./src/assets/Home.png)
+- Cart, Add or Remove items from the Cart List.
+  ![image](./src/assets/Cart.png)
+- Search in the database by name, price, category or/and discount.
+  ![image](./src/assets/Search.png)
 
 ## Built With
 
@@ -32,13 +27,10 @@ The link for the
 ## How to start the project from your Local environment
 
 - Open your terminal and cd where you want to store the project
-- Run the following command - `git clone https://github.com/Wusinho/React-Redux-Catalogue.git `
-- Cd into the directory - `cd React-Redux-Catalogue`
+- Run the following command - `git clone https://github.com/Wusinho/tienda-licor-front-end`
+- Cd into the created directory
 - Run `npm install` to install all dependencies
-- To run the pogram type `npm run dev` on your terminal.
-- By default it will open in google-chrome however you can configure `./config/webpack.dev` to open it another browser.
-
-- To run the tests `npm run test`
+- To run the pogram type `npm start` on your terminal.
 
 ![image](./src/assets/Tests.png)
 
@@ -56,11 +48,6 @@ Contributions, issues, and feature requests are welcome!
 ## Show your support
 
 Give a star if you :star: like this project!
-
-## Acknowledgments
-
-- Microverse
-- Unsplash
 
 ## 📝 License
 
