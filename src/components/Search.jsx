@@ -8,6 +8,7 @@ import {
 } from "../store/products";
 import Nothing from "./Nothing";
 import Card from "./Card";
+import Loading from "./Loading.jsx";
 
 const Search = ({ handleAddProduct }) => {
   const dispatch = useDispatch();
@@ -53,24 +54,22 @@ const Search = ({ handleAddProduct }) => {
   }, [dispatch, checkedItems]);
   return (
     <div className="">
-      <div className="row">
-        <div className="col-md-3 ">
-          <form className="row g-3  p-4">
-            <div class="mb-3">
-              <label for="formGroupExampleInput" class="form-label">
-                Example label
-              </label>
-              <input
-                type="text"
-                class="form-control"
-                id="formGroupExampleInput"
-                placeholder="Example input placeholder"
-                onChange={handleNameChange}
-                name={checkedItems["name"]}
-              />
-            </div>
-            {categories.length > 0 &&
-              categories.map((item) => (
+      {categories.length > 0 ? (
+        <div className="row">
+          <div className="col-md-3 ">
+            <form className="row g-3  p-4">
+              <div className="mb-3">
+                <label className="form-label">Example label</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="formGroupExampleInput"
+                  placeholder="Example input placeholder"
+                  onChange={handleNameChange}
+                  name={checkedItems["name"]}
+                />
+              </div>
+              {categories.map((item) => (
                 <label key={item.id}>
                   {item.name}
                   <input
@@ -81,67 +80,68 @@ const Search = ({ handleAddProduct }) => {
                   />
                 </label>
               ))}
-            <label>
-              discount
-              <input
-                onChange={handleChange}
-                type="checkbox"
-                name="discount"
-                checked={checkedItems["discount"]}
-              />
-            </label>
-          </form>
-
-          <div className="container d-flex justify-content-center ">
-            <div className="card p-3">
-              <h5 className="font-weight-bold">Setup your pricing</h5>
-              <p className="text-muted">Choose a value</p>
-
-              <div>
-                <span className="amount">
-                  Max price: ${checkedItems["price"] * 1000}
-                </span>{" "}
-              </div>
-              <div className="mt-2">
+              <label>
+                discount
                 <input
-                  type="range"
-                  className="form-range"
-                  name={checkedItems["price"]}
-                  min="0"
-                  max="20"
-                  step="1"
-                  id="customRange3"
-                  onChange={handleChangePrice}
+                  onChange={handleChange}
+                  type="checkbox"
+                  name="discount"
+                  checked={checkedItems["discount"]}
                 />
-                <div className="d-flex justify-content-between">
-                  <small className="text-muted">$0</small>{" "}
-                  <small className="text-muted">$20,000</small>{" "}
+              </label>
+            </form>
+
+            <div className="container d-flex justify-content-center ">
+              <div className="card p-3">
+                <h5 className="font-weight-bold">Setup your pricing</h5>
+                <p className="text-muted">Choose a value</p>
+
+                <div>
+                  <span className="amount">
+                    Max price: ${checkedItems["price"] * 1000}
+                  </span>{" "}
+                </div>
+                <div className="mt-2">
+                  <input
+                    type="range"
+                    className="form-range"
+                    name={checkedItems["price"]}
+                    min="0"
+                    max="20"
+                    step="1"
+                    id="customRange3"
+                    onChange={handleChangePrice}
+                  />
+                  <div className="d-flex justify-content-between">
+                    <small className="text-muted">$0</small>{" "}
+                    <small className="text-muted">$20,000</small>{" "}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="col">
-          <div className="container">
-            {search.length > 0 && <h1>{search.length} matches</h1>}
-            <div className="row row-cols-1 row-cols-md-3 g-4">
-              {search.length > 0 ? (
-                search.map((item) => (
-                  <div>
+          <div className="col">
+            <div className="container">
+              {search.length > 0 && <h1>{search.length} matches</h1>}
+              <div className="row row-cols-1 row-cols-md-3 g-4">
+                {search.length > 0 ? (
+                  search.map((item) => (
                     <Card
                       key={item.id}
                       item={item}
                       handleAddProduct={handleAddProduct}
                     />
-                  </div>
-                ))
-              ) : (
-                <Nothing />
-              )}
+                  ))
+                ) : (
+                  <Nothing />
+                )}
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      ) : (
+        <Loading />
+      )}
     </div>
   );
 };
