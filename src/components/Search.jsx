@@ -70,32 +70,28 @@ const Search = ({ handleAddProduct }) => {
                 />
               </div>
               {categories.map((item) => (
-                <div class="mb-3 form-check" key={item.id}>
+                <div className="mb-3 form-check" key={item.id}>
                   <input
                     type="checkbox"
-                    class="form-check-input"
+                    className="form-check-input"
                     id="exampleCheck1"
                     onChange={handleChange}
                     name={item.name}
                     checked={checkedItems[item.name]}
                   />
-                  <label class="form-check-label" for="exampleCheck1">
-                    {item.name}
-                  </label>
+                  <label className="form-check-label">{item.name}</label>
                 </div>
               ))}
-              <div class="mb-3 form-check">
+              <div className="mb-3 form-check">
                 <input
                   type="checkbox"
-                  class="form-check-input"
+                  className="form-check-input"
                   id="exampleCheck1"
                   onChange={handleChange}
                   name="discount"
                   checked={checkedItems["discount"]}
                 />
-                <label class="form-check-label" for="exampleCheck1">
-                  discount
-                </label>
+                <label className="form-check-label">discount</label>
               </div>
 
               <div className="card p-2">

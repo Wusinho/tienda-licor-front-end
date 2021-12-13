@@ -10,10 +10,10 @@ const Card = ({ item, handleAddProduct }) => {
           <img
             src="https://picsum.photos/200"
             className="card-img-top"
-            alt="..."
+            alt="foto de licor"
           />
         ) : (
-          <img src={item.url_image} className="card-img-top" alt="..." />
+          <img src={item.url_image} className="card-img-top" alt={item.name} />
         )}
         <div className="card-body">
           <h5 className="card-title"> {item.name}</h5>
