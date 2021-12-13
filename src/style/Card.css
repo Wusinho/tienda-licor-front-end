@@ -17,3 +17,8 @@
   -webkit-box-shadow: -2px -2px 36px 12px rgba(0, 0, 0, 0.06);
   -moz-box-shadow: -2px -2px 36px 12px rgba(0, 0, 0, 0.06);
 }
+
+.sale {
+  color: red;
+  text-shadow: 1.5px 1.5px 0px #dc3545;
+}

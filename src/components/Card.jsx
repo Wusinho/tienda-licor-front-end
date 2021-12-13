@@ -23,9 +23,9 @@ const Card = ({ item, handleAddProduct }) => {
               <h5 className="off bg-danger text-center pt-2">
                 {item.discount}% OFF
               </h5>
-              <h3 className="card-title">
+              <h1 className="card-title sale">
                 Sale: {realprice(item.price, item.discount)}$
-              </h3>
+              </h1>
             </>
           ) : null}
           <p className="card-text"></p>
