@@ -13,8 +13,8 @@ const Cart = ({
     0
   );
   return (
-    <div>
-      <div>Cart Items</div>
+    <div className="container my-5">
+      <h1>Cart Items</h1>
       {cartItems.length === 0 ? (
         <div>No items are added</div>
       ) : (
@@ -59,7 +59,9 @@ const Cart = ({
             </tbody>
           </table>
 
-          <div>Total: {totalprice} $</div>
+          <div className="d-flex justify-content-end">
+            TOTAL: {totalprice} $
+          </div>
           <button className="btn btn-danger mt-5" onClick={handleCartClearence}>
             Clear Cart
           </button>
