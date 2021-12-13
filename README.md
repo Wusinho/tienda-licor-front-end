@@ -3,7 +3,7 @@
 This is the front-end project for the Ruby on Rails back-end. Here the API is rendered. The items are rendered from the requests done to the back-end. It is possible to search by categories, price, and name. Additionally, you can add items to the cart, erase them one by one, or the whole cart.
 
 The link for the
-[Netlify-Deployment](https://github.com/Wusinho/booking-backend-api/tree/Dev-feature-heroku-deploy)
+[Netlify-Deployment](https://61b6c8a4e5d4a6d1def961bb--competent-mcnulty-9b9b65.netlify.app/)
 
 ## WebSite Sections
 
