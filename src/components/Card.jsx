@@ -1,5 +1,6 @@
 import React from "react";
 import realprice from "../functions/realprice";
+import "../style/Card.css";
 
 const Card = ({ item, handleAddProduct }) => {
   return (
