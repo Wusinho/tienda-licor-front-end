@@ -32,8 +32,6 @@ The link for the
 - Run `npm install` to install all dependencies
 - To run the pogram type `npm start` on your terminal.
 
-![image](./src/assets/Tests.png)
-
 ## Author
 
 👤 **Heber Lazo**
