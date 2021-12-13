@@ -94,7 +94,7 @@ const Search = ({ handleAddProduct }) => {
                 <label className="form-check-label">discount</label>
               </div>
 
-              <div className="card p-2">
+              <div className="p-2">
                 <p className="text-muted">Search by price</p>
 
                 <div>
