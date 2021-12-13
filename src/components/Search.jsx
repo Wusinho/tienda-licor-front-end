@@ -59,12 +59,12 @@ const Search = ({ handleAddProduct }) => {
           <div className="col-md-3 ">
             <form className="row g-3  p-4">
               <div className="mb-3">
-                <label className="form-label">Example label</label>
+                <label className="form-label">Search for a drink:</label>
                 <input
                   type="text"
                   className="form-control"
                   id="formGroupExampleInput"
-                  placeholder="Example input placeholder"
+                  placeholder="Search for a Drink"
                   onChange={handleNameChange}
                   name={checkedItems["name"]}
                 />
@@ -121,7 +121,7 @@ const Search = ({ handleAddProduct }) => {
             </div>
           </div>
           <div className="col">
-            <div className="container">
+            <div className="container p-0">
               {search.length > 0 && <h1>{search.length} matches</h1>}
               <div className="row row-cols-1 row-cols-md-3 g-4">
                 {search.length > 0 ? (
