@@ -5,6 +5,8 @@ This is the front-end project for the Ruby on Rails back-end. Here the API is re
 The link for the
 [Netlify-Deployment](https://61b6c8a4e5d4a6d1def961bb--competent-mcnulty-9b9b65.netlify.app/)
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/27052ef2-c6a3-4b01-9a4d-f11438f88ff4/deploy-status)](https://app.netlify.com/sites/competent-mcnulty-9b9b65/deploys)
+
 ## WebSite Sections
 
 - Homepage, all items are render from the api.
