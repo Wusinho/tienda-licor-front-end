@@ -4,3 +4,16 @@
   -moz-box-shadow: -2px -2px 36px 12px rgba(0, 0, 0, 0.06);
   min-height: 542px;
 }
+
+.off {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 40px;
+  width: 35%;
+  color: white;
+  border-radius: 0px 0px 0px 15px;
+  box-shadow: -2px -2px 36px 12px rgba(0, 0, 0, 0.06);
+  -webkit-box-shadow: -2px -2px 36px 12px rgba(0, 0, 0, 0.06);
+  -moz-box-shadow: -2px -2px 36px 12px rgba(0, 0, 0, 0.06);
+}

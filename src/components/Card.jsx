@@ -5,7 +5,7 @@ import "../style/Card.css";
 const Card = ({ item, handleAddProduct }) => {
   return (
     <div className="col">
-      <div className="card">
+      <div className="card position-relative">
         {item.url_image === "" ? (
           <img
             src="https://picsum.photos/200"
@@ -16,13 +16,15 @@ const Card = ({ item, handleAddProduct }) => {
           <img src={item.url_image} className="card-img-top" alt={item.name} />
         )}
         <div className="card-body">
-          <h5 className="card-title"> {item.name}</h5>
-          <h5 className="card-title">price: {item.price} $</h5>
+          <h3 className="card-title"> {item.name}</h3>
+          <h6 className="card-title">price: {item.price} $</h6>
           {item.discount !== 0 ? (
             <>
-              <h5 className="card-title">discount: {item.discount}%</h5>
+              <h5 className="off bg-danger text-center pt-2">
+                {item.discount}% OFF
+              </h5>
               <h3 className="card-title">
-                on Sale: {realprice(item.price, item.discount)}$
+                Sale: {realprice(item.price, item.discount)}$
               </h3>
             </>
           ) : null}
