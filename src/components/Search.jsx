@@ -42,6 +42,12 @@ const Search = ({ handleAddProduct }) => {
       price: e.target.value,
     });
   };
+  const handleNameChange = (e) => {
+    setCheckedItems({
+      ...checkedItems,
+      name: e.target.value,
+    });
+  };
   useEffect(() => {
     dispatch(requestSearch(checkedItems));
   }, [dispatch, checkedItems]);
@@ -59,6 +65,8 @@ const Search = ({ handleAddProduct }) => {
                 class="form-control"
                 id="formGroupExampleInput"
                 placeholder="Example input placeholder"
+                onChange={handleNameChange}
+                name={checkedItems["name"]}
               />
             </div>
             {categories.length > 0 &&
