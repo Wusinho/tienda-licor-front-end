@@ -66,13 +66,11 @@ export const {
 
 export default productSlice.reducer;
 
-const url = "http://localhost:4000/products";
-const url2 = "http://localhost:4000/categories";
-const url3 = "http://localhost:4000/products?search=";
+const BASEURL = "https://bsale-online-store.herokuapp.com/";
 
 export const loadProducts = () =>
   apiCallBegan({
-    url,
+    BASEURL,
     onStart: productsRequested.type,
     onSuccess: productsReceived.type,
     onError: productsRequestFailed.type,
@@ -80,7 +78,7 @@ export const loadProducts = () =>
 
 export const loadCategories = () =>
   categoriesCallBegan({
-    url2,
+    BASEURL,
     onStart: categoriesRequested.type,
     onSuccess: categoriesReceived.type,
     onError: categoriesRequestFailed.type,
@@ -89,7 +87,7 @@ export const loadCategories = () =>
 export const requestSearch = (params) =>
   searchCallBegan({
     params,
-    url3,
+    BASEURL,
     onStart: searchRequested.type,
     onSuccess: searchReceived.type,
     onError: searchRequestFailed.type,

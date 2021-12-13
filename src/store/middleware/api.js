@@ -8,13 +8,15 @@ const api =
   (action) => {
     if (action.type !== actions.apiCallBegan.type) return next(action);
 
-    const { url, onStart, onSuccess, onError } = action.payload;
+    const { BASEURL, onStart, onSuccess, onError } = action.payload;
 
     if (onStart) dispatch({ type: onStart });
     next(action);
 
+    const products = BASEURL + "products";
+
     axios
-      .get(url, { mode: "cors" })
+      .get(products, { mode: "cors" })
       .then((response) => {
         dispatch(actions.apiCallSuccess(response.data));
         if (onSuccess) dispatch({ type: onSuccess, payload: response.data });

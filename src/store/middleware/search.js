@@ -8,16 +8,18 @@ const search =
   (action) => {
     if (action.type !== actions.searchCallBegan.type) return next(action);
 
-    const { params, url3, onStart, onSuccess, onError } = action.payload;
+    const { params, BASEURL, onStart, onSuccess, onError } = action.payload;
 
     if (onStart) dispatch({ type: onStart });
     next(action);
+
+    const search = BASEURL + "products?search=";
 
     let string = "";
     Object.entries(params).forEach(
       ([key, value]) => (string += `${key}=${value}&`)
     );
-    const getSearch = url3 + string;
+    const getSearch = search + string;
     axios
       .get(getSearch, { search: params }, { mode: "cors" })
       .then((response) => {

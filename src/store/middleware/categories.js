@@ -8,13 +8,14 @@ const categories =
   (action) => {
     if (action.type !== actions.categoriesCallBegan.type) return next(action);
 
-    const { url2, onStart, onSuccess, onError } = action.payload;
+    const { BASEURL, onStart, onSuccess, onError } = action.payload;
 
     if (onStart) dispatch({ type: onStart });
     next(action);
 
+    const categories = BASEURL + "categories";
     axios
-      .get(url2, { mode: "cors" })
+      .get(categories, { mode: "cors" })
       .then((response) => {
         dispatch(actions.categoriesCallSuccess(response.data));
         if (onSuccess) dispatch({ type: onSuccess, payload: response.data });
