@@ -1,14 +1,14 @@
 /* eslint-disable no-param-reassign */
-import { createSlice } from "@reduxjs/toolkit";
-import { apiCallBegan, categoriesCallBegan, searchCallBegan } from "./api";
+import { createSlice } from '@reduxjs/toolkit';
+import { apiCallBegan, categoriesCallBegan, searchCallBegan } from './api';
 
 export const productSlice = createSlice({
-  name: "products",
+  name: 'products',
   initialState: {
     loading: false,
     list: {},
     categories: {},
-    error: "",
+    error: '',
     search: {},
   },
   reducers: {
@@ -66,29 +66,26 @@ export const {
 
 export default productSlice.reducer;
 
-const BASEURL = "https://bsale-online-store.herokuapp.com/";
+const BASEURL = 'https://bsale-online-store.herokuapp.com/';
 
-export const loadProducts = () =>
-  apiCallBegan({
-    BASEURL,
-    onStart: productsRequested.type,
-    onSuccess: productsReceived.type,
-    onError: productsRequestFailed.type,
-  });
+export const loadProducts = () => apiCallBegan({
+  BASEURL,
+  onStart: productsRequested.type,
+  onSuccess: productsReceived.type,
+  onError: productsRequestFailed.type,
+});
 
-export const loadCategories = () =>
-  categoriesCallBegan({
-    BASEURL,
-    onStart: categoriesRequested.type,
-    onSuccess: categoriesReceived.type,
-    onError: categoriesRequestFailed.type,
-  });
+export const loadCategories = () => categoriesCallBegan({
+  BASEURL,
+  onStart: categoriesRequested.type,
+  onSuccess: categoriesReceived.type,
+  onError: categoriesRequestFailed.type,
+});
 
-export const requestSearch = (params) =>
-  searchCallBegan({
-    params,
-    BASEURL,
-    onStart: searchRequested.type,
-    onSuccess: searchReceived.type,
-    onError: searchRequestFailed.type,
-  });
+export const requestSearch = (params) => searchCallBegan({
+  params,
+  BASEURL,
+  onStart: searchRequested.type,
+  onSuccess: searchReceived.type,
+  onError: searchRequestFailed.type,
+});

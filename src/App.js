@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
-import Nav from "./components/Nav.jsx";
-import { useSelector, useDispatch } from "react-redux";
-import { Route, Routes } from "react-router-dom";
-import { getApi, loadProducts } from "./store/products.js";
-import Home from "./components/Home";
-import Search from "./components/Search";
-import Cart from "./components/Cart";
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { Route, Routes } from 'react-router-dom';
+import Nav from './components/Nav';
+import { getApi, loadProducts } from './store/products';
+// eslint-disable-next-line import/no-named-as-default
+import Home from './components/Home';
+import Search from './components/Search';
+import Cart from './components/Cart';
 
 function App() {
   const dispatch = useDispatch();
@@ -20,14 +21,12 @@ function App() {
     const productExist = cartItems.find((item) => item.id === product.id);
     if (productExist) {
       setCartItems(
-        cartItems.map((item) =>
-          item.id === product.id
-            ? {
-                ...productExist,
-                quantity: productExist.quantity + 1,
-              }
-            : item
-        )
+        cartItems.map((item) => (item.id === product.id
+          ? {
+            ...productExist,
+            quantity: productExist.quantity + 1,
+          }
+          : item)),
       );
     } else {
       setCartItems([...cartItems, { ...product, quantity: 1 }]);
@@ -40,11 +39,9 @@ function App() {
       setCartItems(cartItems.filter((item) => item.id !== product.id));
     } else {
       setCartItems(
-        cartItems.map((item) =>
-          item.id === product.id
-            ? { ...productExist, quantity: productExist.quantity - 1 }
-            : item
-        )
+        cartItems.map((item) => (item.id === product.id
+          ? { ...productExist, quantity: productExist.quantity - 1 }
+          : item)),
       );
     }
   };
@@ -59,13 +56,13 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={
+          element={(
             <Home
               api={api}
               handleAddProduct={handleAddProduct}
               itemsPerPage={12}
             />
-          }
+          )}
         />
         <Route
           path="/search"
@@ -73,14 +70,14 @@ function App() {
         />
         <Route
           path="/cart"
-          element={
+          element={(
             <Cart
               cartItems={cartItems}
               handleAddProduct={handleAddProduct}
               handleRemoveProduct={handleRemoveProduct}
               handleCartClearence={handleCartClearence}
             />
-          }
+          )}
         />
       </Routes>
     </div>
