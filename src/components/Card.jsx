@@ -18,14 +18,14 @@ const Card = ({ item, handleAddProduct }) => {
         <div className="card-body">
           <h5 className="card-title"> {item.name}</h5>
           <h5 className="card-title">price: {item.price} $</h5>
-          {item.discount !== "0" && (
+          {item.discount !== 0 ? (
             <>
               <h5 className="card-title">discount: {item.discount}%</h5>
               <h3 className="card-title">
                 on Sale: {realprice(item.price, item.discount)}$
               </h3>
             </>
-          )}
+          ) : null}
           <p className="card-text"></p>
         </div>
         <div className="card-footer bg-transparent ">
