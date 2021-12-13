@@ -66,7 +66,7 @@ export const {
 
 export default productSlice.reducer;
 
-const url = "http://localhost:4000/products2";
+const url = "http://localhost:4000/products";
 const url2 = "http://localhost:4000/categories";
 const url3 = "http://localhost:4000/products?search=";
 
