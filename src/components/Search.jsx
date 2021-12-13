@@ -70,17 +70,31 @@ const Search = ({ handleAddProduct }) => {
                 />
               </div>
               {categories.map((item) => (
-                <label key={item.id}>
-                  {item.name}
+                // <label key={item.id}>
+                //   {item.name}
+                //   <input
+                //     onChange={handleChange}
+                //     type="checkbox"
+                //     name={item.name}
+                //     checked={checkedItems[item.name]}
+                //   />
+                // </label>
+
+                <div class="mb-3 form-check" key={item.id}>
                   <input
-                    onChange={handleChange}
                     type="checkbox"
+                    class="form-check-input"
+                    id="exampleCheck1"
+                    onChange={handleChange}
                     name={item.name}
                     checked={checkedItems[item.name]}
                   />
-                </label>
+                  <label class="form-check-label" for="exampleCheck1">
+                    {item.name}
+                  </label>
+                </div>
               ))}
-              <label>
+              {/* <label>
                 discount
                 <input
                   onChange={handleChange}
@@ -88,7 +102,21 @@ const Search = ({ handleAddProduct }) => {
                   name="discount"
                   checked={checkedItems["discount"]}
                 />
-              </label>
+              </label> */}
+
+              <div class="mb-3 form-check">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="exampleCheck1"
+                  onChange={handleChange}
+                  name="discount"
+                  checked={checkedItems["discount"]}
+                />
+                <label class="form-check-label" for="exampleCheck1">
+                  discount
+                </label>
+              </div>
 
               <div className="card p-2">
                 <p className="text-muted">Search by price</p>
