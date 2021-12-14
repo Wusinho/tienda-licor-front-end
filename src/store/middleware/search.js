@@ -15,15 +15,24 @@ const search =
     if (onStart) dispatch({ type: onStart });
     next(action);
 
-    const search = `${BASEURL}products?search=`;
+    const search = `${BASEURL}products?`;
 
     let string = "";
-    Object.entries(params).forEach(
-      ([key, value]) => (string += `${key}=${value} `)
-    );
+    Object.entries(params).forEach(([key, value]) => {
+      if (key == "name") {
+        string += `search=${value}&`;
+      } else if (key == "discount") {
+        string += `discount=${value}&`;
+      } else if (key == "price") {
+        string += `price=${value}&`;
+      } else if (value == true) {
+        string += `cid=${key}&`;
+      }
+    });
+
     const getSearch = search + string;
     // console.log(params);
-    // console.log(getSearch);
+    console.log(getSearch);
     axios
       .get(getSearch, { search: params }, { mode: "cors" })
       .then((response) => {

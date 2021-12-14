@@ -89,7 +89,7 @@ const Search = ({ handleAddProduct }) => {
                   id="exampleCheck1"
                   onChange={handleChange}
                   name="discount"
-                  checked="discount"
+                  checked={checkedItems["discount"]}
                 />
                 <label className="form-check-label">discount</label>
               </div>
