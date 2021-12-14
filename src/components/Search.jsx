@@ -27,46 +27,30 @@ const Search = ({ handleAddProduct }) => {
     price: 20,
   });
 
-  // const [data, setData] = useState({
-  //   pisco: "",
-  //   pisco: "",
-  //   pisco: "",
-  //   pisco: "",
-  //   pisco: "",
-  //   pisco: "",
-  // });
   const categories = useSelector(getCategories);
   const search = useSelector(getSearch);
 
   useEffect(() => {
     dispatch(loadCategories());
-  }, [dispatch]);
+  }, []);
 
   const handleChange = (e) => {
     setCheckedItems({
       ...checkedItems,
       [e.target.name]: e.target.checked,
     });
-    // setData({
-    //   ...data,
-    //   [e.target.name]: e.taget.value
-    // })
   };
-  const handleChangePrice = (e) => {
+
+  const handleChangeValue = (e) => {
     setCheckedItems({
       ...checkedItems,
-      price: e.target.value,
+      [e.target.name]: e.target.value,
     });
   };
-  const handleNameChange = (e) => {
-    setCheckedItems({
-      ...checkedItems,
-      name: e.target.value,
-    });
-  };
+
   useEffect(() => {
     dispatch(requestSearch(checkedItems));
-  }, [dispatch, checkedItems]);
+  }, [checkedItems]);
   return (
     <div className="mx-5">
       {categories.length > 0 ? (
@@ -80,8 +64,8 @@ const Search = ({ handleAddProduct }) => {
                   className="form-control"
                   id="formGroupExampleInput"
                   placeholder="Search for a Drink"
-                  onChange={handleNameChange}
-                  name={checkedItems["name"]}
+                  onChange={handleChangeValue}
+                  name="name"
                 />
               </div>
               {categories.map((item) => (
@@ -93,6 +77,7 @@ const Search = ({ handleAddProduct }) => {
                     onChange={handleChange}
                     name={item.name}
                     checked={checkedItems[item.name]}
+                    value={item.id}
                   />
                   <label className="form-check-label">{item.name}</label>
                 </div>
@@ -104,7 +89,7 @@ const Search = ({ handleAddProduct }) => {
                   id="exampleCheck1"
                   onChange={handleChange}
                   name="discount"
-                  checked={checkedItems["discount"]}
+                  checked="discount"
                 />
                 <label className="form-check-label">discount</label>
               </div>
@@ -115,22 +100,22 @@ const Search = ({ handleAddProduct }) => {
                 <div>
                   <span className="amount">
                     Max price: ${checkedItems["price"] * 1000}
-                  </span>{" "}
+                  </span>
                 </div>
                 <div className="mt-2">
                   <input
                     type="range"
                     className="form-range"
-                    name={checkedItems["price"]}
+                    name="price"
                     min="0"
                     max="20"
                     step="1"
                     id="customRange3"
-                    onChange={handleChangePrice}
+                    onChange={handleChangeValue}
                   />
                   <div className="d-flex justify-content-between">
-                    <small className="text-muted">$0</small>{" "}
-                    <small className="text-muted">$20,000</small>{" "}
+                    <small className="text-muted">$0</small>
+                    <small className="text-muted">$20,000</small>
                   </div>
                 </div>
               </div>

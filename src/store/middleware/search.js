@@ -19,12 +19,11 @@ const search =
 
     let string = "";
     Object.entries(params).forEach(
-      // eslint-disable-next-line no-return-assign
       ([key, value]) => (string += `${key}=${value}&`)
     );
     const getSearch = search + string;
-    console.log(params);
-    console.log(getSearch);
+    // console.log(params);
+    // console.log(getSearch);
     axios
       .get(getSearch, { search: params }, { mode: "cors" })
       .then((response) => {
