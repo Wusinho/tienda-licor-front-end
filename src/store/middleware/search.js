@@ -19,7 +19,7 @@ const search =
 
     let string = "";
     Object.entries(params).forEach(
-      ([key, value]) => (string += `${key}=${value}&`)
+      ([key, value]) => (string += `${key}=${value} `)
     );
     const getSearch = search + string;
     // console.log(params);
