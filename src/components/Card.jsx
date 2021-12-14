@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from "react";
 import realprice from "../functions/realprice";
 import "../style/Card.css";

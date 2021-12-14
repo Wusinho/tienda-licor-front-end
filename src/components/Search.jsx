@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -24,6 +26,15 @@ const Search = ({ handleAddProduct }) => {
     discount: true,
     price: 20,
   });
+
+  // const [data, setData] = useState({
+  //   pisco: "",
+  //   pisco: "",
+  //   pisco: "",
+  //   pisco: "",
+  //   pisco: "",
+  //   pisco: "",
+  // });
   const categories = useSelector(getCategories);
   const search = useSelector(getSearch);
 
@@ -36,6 +47,10 @@ const Search = ({ handleAddProduct }) => {
       ...checkedItems,
       [e.target.name]: e.target.checked,
     });
+    // setData({
+    //   ...data,
+    //   [e.target.name]: e.taget.value
+    // })
   };
   const handleChangePrice = (e) => {
     setCheckedItems({
