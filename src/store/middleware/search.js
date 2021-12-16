@@ -10,40 +10,31 @@ const search =
   (action) => {
     if (action.type !== actions.searchCallBegan.type) return next(action);
 
-    const { checked, otherparams, BASEURL, onStart, onSuccess, onError } =
+    const { ids, otherparams, BASEURL, onStart, onSuccess, onError } =
       action.payload;
 
     if (onStart) dispatch({ type: onStart });
     next(action);
 
-    // const search = `${BASEURL}search?`;
+    let params = `cid=${ids}&`;
+    Object.entries(otherparams).forEach(([key, value]) => {
+      if (key == "name" && value != "") {
+        console.log(`name value = ${value}`);
+        params += `search=${value}&`;
+      } else if (key == "discount") {
+        params += `discount=${value}&`;
+      } else if (key == "price") {
+        params += `price=${value}&`;
+      }
+    });
 
-    // let string = "";
-    // Object.entries(params).forEach(([key, value]) => {
-    //   if (key == "name") {
-    //     string += `search=${value}&`;
-    //   } else if (key == "discount") {
-    //     string += `discount=${value}&`;
-    //   } else if (key == "price") {
-    //     string += `price=${value}&`;
-    //   } else if (value == true) {
-    //     string += `cid=${key}&`;
-    //   }
-    // });
+    const url = `${BASEURL}products?`;
 
-    const search = `${BASEURL}products?search=`;
+    const getSearch = url + params;
 
-    let string = "";
-    Object.entries(params).forEach(
-      // eslint-disable-next-line no-return-assign
-      ([key, value]) => (string += `${key}=${value}&`)
-    );
-
-    const getSearch = search + string;
-    // console.log(params);
-    // console.log(getSearch);
+    console.log(getSearch);
     axios
-      .get(getSearch, { search: params }, { mode: "cors" })
+      .get(getSearch, { mode: "cors" })
       .then((response) => {
         dispatch(actions.searchCallSuccess(response.data));
         if (onSuccess) dispatch({ type: onSuccess, payload: response.data });

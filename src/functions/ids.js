@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-function objectsAreSame(cat) {
+function ids(obj1, obj2) {
   const ids = [];
 
   Object.entries(obj1).forEach(([key, value]) => {
@@ -12,4 +12,4 @@ function objectsAreSame(cat) {
   });
   return ids;
 }
-export default objectsAreSame;
+export default ids;

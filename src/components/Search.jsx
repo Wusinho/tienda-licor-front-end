@@ -6,6 +6,7 @@ import { getCategories, requestSearch, getSearch } from "../store/products";
 import Nothing from "./Nothing";
 import Card from "./Card";
 import Loading from "./Loading.jsx";
+import ids from "../functions/ids";
 
 const Search = ({ handleAddProduct }) => {
   const dispatch = useDispatch();
@@ -34,7 +35,6 @@ const Search = ({ handleAddProduct }) => {
       [e.target.name]: e.target.checked,
     });
   };
-  console.log(categories);
   const handleChangeValue = (e) => {
     setotherParams({
       ...otherParams,
@@ -43,7 +43,8 @@ const Search = ({ handleAddProduct }) => {
   };
 
   const handleSubmit = (e) => {
-    dispatch(requestSearch(checkedItems, otherParams));
+    dispatch(requestSearch(ids(checkedItems, categories), otherParams));
+    console.log(otherParams);
     e.preventDefault();
   };
 
@@ -61,7 +62,7 @@ const Search = ({ handleAddProduct }) => {
                   id="formGroupExampleInput"
                   placeholder="Search for a Drink"
                   onChange={handleChangeValue}
-                  name={otherParams["name"]}
+                  name="name"
                 />
               </div>
               {categories.map((item) => (
