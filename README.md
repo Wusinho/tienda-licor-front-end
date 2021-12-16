@@ -13,6 +13,20 @@ Finally, make the application and the repository available with the code and the
 
 # Description of the Project
 
+For the development of the project, the following tools were used:
+
+- JavaScript
+- HTML
+- CSS
+- React
+- Redux
+- Bootstrap
+- Package.json
+
+The front-end was built using react's library using a redux structure.
+
+![image](./src/assets/Redux-diagram.png)
+
 is the front-end project for the Ruby on Rails back-end. Here the end points from the back-end are consumed and rendered. The items are rendered from the requests done to end points from the back-end.
 The project consist on building a online store where products can be displayed by categories.
 It is possible to search by categories, price, and/or name, all this has to be implemented in the back-end. Additionally, it is possible to add items to the cart, erase them one by one add more products, or erase the whole cart with a single click.
@@ -56,16 +70,6 @@ It may take some time for the page to load since Heroku also needs time to load 
   - Get BASE_URL+products, the request to this end point will give a response with all the products in the database
   - Get BASE_URL+categories, the request to this end point will give a response with all the categories from the product in the database.
   - Get BASE_URL+search, the request is a string with all the different search arguments you need ( name, price, discount or any category from the menu)
-
-## Built With
-
-- JavaScript
-- HTML
-- CSS
-- React
-- Redux
-- Bootstrap
-- Package.json
 
 ## How to start the project from your Local environment
 
