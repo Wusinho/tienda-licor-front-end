@@ -23,33 +23,48 @@ For the development of the project, the following tools were used:
 - Bootstrap
 - Package.json
 
-The front-end was built using react's library using a redux structure.
+The front-end was built using react and redux library.
+On the homepage, there are two request actions to the REST-API.
 
-![image](./src/assets/Redux-diagram.png)
+- The first request is to the end-point '/products' to get all the products in the database.
+- The second request is to '/categories' to get all the product ids and categories.
 
-is the front-end project for the Ruby on Rails back-end. Here the end points from the back-end are consumed and rendered. The items are rendered from the requests done to end points from the back-end.
-The project consist on building a online store where products can be displayed by categories.
-It is possible to search by categories, price, and/or name, all this has to be implemented in the back-end. Additionally, it is possible to add items to the cart, erase them one by one add more products, or erase the whole cart with a single click.
+  - Redux data flow.
 
-As part of the proyect its is needed to deploy it, for the front-end it was used Netlity (it may take some minutes to load, since the back end takes some time when it's not used)
+  ![image](./src/assets/Redux-diagram.png)
+
+  The middleware is in charge of the process that handles the request and response. Once there is a 200 response, the data from the API is stored and through the react component HOME, the information is displayed.
+
+  - The homepage displays all the products from the API.
+
+  ![image](./src/assets/Home.png)
+
+If there's an error of somekind a message will appear.
+
+![image](./src/assets/Error_message.png)
+
+The homepage displays all products with the following details: name, price, discount, and the sale price.
+
+The customer can browse through all the products that might be of interest, then add them to the cart. A small counter will keep track every time a new item is selected. Once the customer has finished, it is possible to check all the items that were selected, if needed it is possible to add more items, remove them or delete the whole shopping cart.
+
+- Add or Remove items from the Cart List.
+
+  ![image](./src/assets/Cart.png)
+
+If the customer needs a more in-depth search, there is a search tab at the top of the navbar. From this part of the webpage is possible to add items to shopping cart.
+
+Every time there's a new search a request is sent to the '/search' endpoint through redux middleware to the API. If there's a 200 response, the data will be stored in redux and then displayed.
+
+- Search in the database by name, price, category and/or discount.
+
+  ![image](./src/assets/Search.png)
+
 [Netlify-Deployment](https://61b6c8a4e5d4a6d1def961bb--competent-mcnulty-9b9b65.netlify.app/)
 It may take some time for the page to load since Heroku also needs time to load the back-end.
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/27052ef2-c6a3-4b01-9a4d-f11438f88ff4/deploy-status)](https://app.netlify.com/sites/competent-mcnulty-9b9b65/deploys)
 
 ## WebSite Sections
-
-- Homepage, all items are render from the api.
-
-  ![image](./src/assets/Home.png)
-
-- Cart, Add or Remove items from the Cart List.
-
-  ![image](./src/assets/Cart.png)
-
-- Search in the database by name, price, category or/and discount.
-
-  ![image](./src/assets/Search.png)
 
 - The database structure, there are two tables. There's one assosiation Product belongs_to Category
 
@@ -63,13 +78,13 @@ It may take some time for the page to load since Heroku also needs time to load 
   | GET    | categories | Get the categories |
   | GET    | search     |     Get the search |
 
-  There are 3 current endpoints that are currently working.
+These are the 3 endpoints needed to display all the information in the webpage.
 
-  For example in the local environment the BASEURL will be : http://localhost:3000/
+For example in the local environment the BASEURL will be : http://localhost:3000/
 
-  - Get BASE_URL+products, the request to this end point will give a response with all the products in the database
-  - Get BASE_URL+categories, the request to this end point will give a response with all the categories from the product in the database.
-  - Get BASE_URL+search, the request is a string with all the different search arguments you need ( name, price, discount or any category from the menu)
+- Get BASE_URL+products, the request to this end point will give a response with all the products in the database
+- Get BASE_URL+categories, the request to this end point will give a response with all the categories from the product in the database.
+- Get BASE_URL+search, the request is a string with all the different search arguments you need ( name, price, discount or any category from the menu)
 
 ## How to start the project from your Local environment
 
