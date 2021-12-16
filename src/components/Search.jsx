@@ -40,14 +40,31 @@ const Search = ({ handleAddProduct }) => {
     });
   };
 
-  useEffect(() => {
-    if (checkedItems["name"] == "") {
-      dispatch(requestSearch(checkedItems));
-    } else {
-      const timer = setTimeout(() => console.log("Initial timeout!"), 2000);
-    }
-    return () => clearInterval(timer);
-  }, [checkedItems]);
+  const handleSubmit = (e) => {
+    dispatch(requestSearch(checkedItems));
+    e.preventDefault();
+  };
+
+  // useEffect(() => {
+  //   if (checkedItems["name"] == "") {
+  //     dispatch(requestSearch(checkedItems));
+  //   }
+  // }, [checkedItems]);
+
+  // useEffect(() => {
+  //   const listener = (event) => {
+  //     if (event.code === "Enter" || event.code === "NumpadEnter") {
+  //       console.log("Enter key was pressed. Run your function.");
+  //       event.preventDefault();
+  //       dispatch(requestSearch(checkedItems));
+  //     }
+  //   };
+  //   document.addEventListener("keydown", listener);
+  //   return () => {
+  //     document.removeEventListener("keydown", listener);
+  //   };
+  // }, []);
+
   return (
     <div className="mx-5">
       {categories.length > 0 ? (
@@ -116,6 +133,9 @@ const Search = ({ handleAddProduct }) => {
                   </div>
                 </div>
               </div>
+              <button onClick={handleSubmit} className="btn btn-success">
+                Submit
+              </button>
             </form>
           </div>
           <div className="col-md-9 p-0">
