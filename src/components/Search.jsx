@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategories, requestSearch, getSearch } from "../store/products";
 import Nothing from "./Nothing";
@@ -9,7 +9,6 @@ import Loading from "./Loading.jsx";
 
 const Search = ({ handleAddProduct }) => {
   const dispatch = useDispatch();
-  const [timer, setTimer] = useState(1);
   const [checkedItems, setCheckedItems] = useState({
     "bebida energetica": false,
     name: "",
@@ -44,26 +43,6 @@ const Search = ({ handleAddProduct }) => {
     dispatch(requestSearch(checkedItems));
     e.preventDefault();
   };
-
-  // useEffect(() => {
-  //   if (checkedItems["name"] == "") {
-  //     dispatch(requestSearch(checkedItems));
-  //   }
-  // }, [checkedItems]);
-
-  // useEffect(() => {
-  //   const listener = (event) => {
-  //     if (event.code === "Enter" || event.code === "NumpadEnter") {
-  //       console.log("Enter key was pressed. Run your function.");
-  //       event.preventDefault();
-  //       dispatch(requestSearch(checkedItems));
-  //     }
-  //   };
-  //   document.addEventListener("keydown", listener);
-  //   return () => {
-  //     document.removeEventListener("keydown", listener);
-  //   };
-  // }, []);
 
   return (
     <div className="mx-5">
