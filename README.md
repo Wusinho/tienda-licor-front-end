@@ -64,7 +64,7 @@ It may take some time for the page to load since Heroku also needs time to load 
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/27052ef2-c6a3-4b01-9a4d-f11438f88ff4/deploy-status)](https://app.netlify.com/sites/competent-mcnulty-9b9b65/deploys)
 
-## WebSite Sections
+## Database
 
 - The database structure, there are two tables. There's one assosiation Product belongs_to Category
 
