@@ -51,7 +51,7 @@ The customer can browse through all the products that might be of interest, then
 
   ![image](./src/assets/Cart.png)
 
-If the customer needs a more in-depth search, there is a search tab at the top of the navbar. From this part of the webpage is possible to add items to shopping cart.
+If the customer needs a more in-depth search, there is a search tab at the top of the navbar. From this part of the webpage is possible to add items to the shopping cart.
 
 Every time there's a new search a request is sent to the '/search' endpoint through redux middleware to the API. If there's a 200 response, the data will be stored in redux and then displayed.
 
