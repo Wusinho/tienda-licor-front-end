@@ -1,6 +1,19 @@
 # Online Store - bsale
 
-This is the front-end project for the Ruby on Rails back-end. Here the end points from the back-end are consumed and rendered. The items are rendered from the requests done to end points from the back-end.
+# Objectives
+
+Build an online store that displays products grouped by category, generating separately backend (REST API) and frontend and using the database that is available to its development.
+
+In addition, you have to add a search engine, which has to be implemented at the server, through an API Rest whose language and framework can be free choice.
+
+The front-end must be developed with vanilla javascript without any framework, the use of libraries, components
+specific, such as; bootstrap, material, Jquery, among others are allowed.
+
+Finally, make the application and the repository available with the code and the hosting.
+
+# Description of the Project
+
+is the front-end project for the Ruby on Rails back-end. Here the end points from the back-end are consumed and rendered. The items are rendered from the requests done to end points from the back-end.
 The project consist on building a online store where products can be displayed by categories.
 It is possible to search by categories, price, and/or name, all this has to be implemented in the back-end. Additionally, it is possible to add items to the cart, erase them one by one add more products, or erase the whole cart with a single click.
 
