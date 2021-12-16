@@ -1,6 +1,8 @@
 # Online Store - bsale
 
-This is the front-end project for the Ruby on Rails back-end. Here the API is rendered. The items are rendered from the requests done to the back-end. It is possible to search by categories, price, and name. Additionally, you can add items to the cart, erase them one by one, or the whole cart.
+This is the front-end project for the Ruby on Rails back-end. Here the end points from the back-end are consumed and rendered. The items are rendered from the requests done to end points from the back-end.
+The project consist on building a online store where products can be displayed by categories.
+It is possible to search by categories, price, and/or name, all this has to be implemented in the back-end. Additionally, it is possible to add items to the cart, erase them one by one add more products, or erase the whole cart with a single click.
 
 The link for the
 [Netlify-Deployment](https://61b6c8a4e5d4a6d1def961bb--competent-mcnulty-9b9b65.netlify.app/)
