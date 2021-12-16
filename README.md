@@ -24,7 +24,7 @@ For the development of the project, the following tools were used:
 - Package.json
 
 The front-end was built using react and redux library.
-On the homepage, there are two request actions to the REST-API.
+On the homepage, there are two request actions to the REST-API using redux middleware.
 
 - The first request is to the end-point '/products' to get all the products in the database.
 - The second request is to '/categories' to get all the product ids and categories.
@@ -33,7 +33,7 @@ On the homepage, there are two request actions to the REST-API.
 
   ![image](./src/assets/Redux-diagram.png)
 
-  The middleware is in charge of the process that handles the request and response. Once there is a 200 response, the data from the API is stored and through the react component HOME, the information is displayed.
+  The middleware is in charge of the process that handles the request and response. Once there is a 200 response, the data from the API is stored in Redux-store and through the react component HOME, the information is displayed.
 
   - The homepage displays all the products from the API.
 
