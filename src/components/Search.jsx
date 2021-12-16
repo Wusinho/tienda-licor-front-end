@@ -2,18 +2,14 @@
 
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  loadCategories,
-  getCategories,
-  requestSearch,
-  getSearch,
-} from "../store/products";
+import { getCategories, requestSearch, getSearch } from "../store/products";
 import Nothing from "./Nothing";
 import Card from "./Card";
 import Loading from "./Loading.jsx";
 
 const Search = ({ handleAddProduct }) => {
   const dispatch = useDispatch();
+  const [timer, setTimer] = useState(1);
   const [checkedItems, setCheckedItems] = useState({
     "bebida energetica": false,
     name: "",
@@ -30,10 +26,6 @@ const Search = ({ handleAddProduct }) => {
   const categories = useSelector(getCategories);
   const search = useSelector(getSearch);
 
-  useEffect(() => {
-    dispatch(loadCategories());
-  }, []);
-
   const handleChange = (e) => {
     setCheckedItems({
       ...checkedItems,
@@ -49,7 +41,12 @@ const Search = ({ handleAddProduct }) => {
   };
 
   useEffect(() => {
-    dispatch(requestSearch(checkedItems));
+    if (checkedItems["name"] == "") {
+      dispatch(requestSearch(checkedItems));
+    } else {
+      const timer = setTimeout(() => console.log("Initial timeout!"), 2000);
+    }
+    return () => clearInterval(timer);
   }, [checkedItems]);
   return (
     <div className="mx-5">

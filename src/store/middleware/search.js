@@ -15,20 +15,28 @@ const search =
     if (onStart) dispatch({ type: onStart });
     next(action);
 
-    const search = `${BASEURL}products?`;
+    // const search = `${BASEURL}search?`;
+
+    // let string = "";
+    // Object.entries(params).forEach(([key, value]) => {
+    //   if (key == "name") {
+    //     string += `search=${value}&`;
+    //   } else if (key == "discount") {
+    //     string += `discount=${value}&`;
+    //   } else if (key == "price") {
+    //     string += `price=${value}&`;
+    //   } else if (value == true) {
+    //     string += `cid=${key}&`;
+    //   }
+    // });
+
+    const search = `${BASEURL}products?search=`;
 
     let string = "";
-    Object.entries(params).forEach(([key, value]) => {
-      if (key == "name") {
-        string += `search=${value}&`;
-      } else if (key == "discount") {
-        string += `discount=${value}&`;
-      } else if (key == "price") {
-        string += `price=${value}&`;
-      } else if (value == true) {
-        string += `cid=${key}&`;
-      }
-    });
+    Object.entries(params).forEach(
+      // eslint-disable-next-line no-return-assign
+      ([key, value]) => (string += `${key}=${value}&`)
+    );
 
     const getSearch = search + string;
     // console.log(params);

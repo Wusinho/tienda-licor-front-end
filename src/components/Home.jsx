@@ -1,11 +1,15 @@
 /* eslint-disable */
 
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { loadCategories } from "../store/products";
 import Card from "./Card";
 import Loading from "./Loading";
 import ReactPaginate from "react-paginate";
 
 export const Home = ({ api, handleAddProduct, itemsPerPage }) => {
+  const dispatch = useDispatch();
+
   const [currentItems, setCurrentItems] = useState([]);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
@@ -17,6 +21,10 @@ export const Home = ({ api, handleAddProduct, itemsPerPage }) => {
       setPageCount(Math.ceil(api.length / itemsPerPage));
     }
   }, [itemOffset, itemsPerPage, api]);
+
+  useEffect(() => {
+    dispatch(loadCategories());
+  }, []);
 
   const handlePageClick = (e) => {
     const newOffset = (e.selected * itemsPerPage) % api.length;
