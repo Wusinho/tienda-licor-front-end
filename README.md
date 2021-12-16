@@ -4,7 +4,7 @@ This is the front-end project for the Ruby on Rails back-end. Here the end point
 The project consist on building a online store where products can be displayed by categories.
 It is possible to search by categories, price, and/or name, all this has to be implemented in the back-end. Additionally, it is possible to add items to the cart, erase them one by one add more products, or erase the whole cart with a single click.
 
-The link for the
+As part of the proyect its is needed to deploy it, for the front-end it was used Netlity (it may take some minutes to load, since the back end takes some time when it's not used)
 [Netlify-Deployment](https://61b6c8a4e5d4a6d1def961bb--competent-mcnulty-9b9b65.netlify.app/)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/27052ef2-c6a3-4b01-9a4d-f11438f88ff4/deploy-status)](https://app.netlify.com/sites/competent-mcnulty-9b9b65/deploys)
