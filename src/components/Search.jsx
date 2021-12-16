@@ -35,16 +35,24 @@ const Search = ({ handleAddProduct }) => {
       [e.target.name]: e.target.checked,
     });
   };
+
   const handleChangeValue = (e) => {
-    setotherParams({
-      ...otherParams,
-      [e.target.name]: e.target.value,
-    });
+    if (e.target.name == "discount") {
+      setotherParams({
+        ...otherParams,
+        [e.target.name]: e.target.checked,
+      });
+    } else {
+      setotherParams({
+        ...otherParams,
+
+        [e.target.name]: e.target.value,
+      });
+    }
   };
 
   const handleSubmit = (e) => {
     dispatch(requestSearch(ids(checkedItems, categories), otherParams));
-    console.log(otherParams);
     e.preventDefault();
   };
 
@@ -84,7 +92,7 @@ const Search = ({ handleAddProduct }) => {
                   type="checkbox"
                   className="form-check-input"
                   id="exampleCheck1"
-                  onChange={handleChange}
+                  onChange={handleChangeValue}
                   name="discount"
                   checked={otherParams["discount"]}
                 />
@@ -123,8 +131,8 @@ const Search = ({ handleAddProduct }) => {
           </div>
           <div className="col-md-9 p-0">
             <div className="container p-0">
-              {search.length === 1 && <h1>{search.length} match</h1>}
-              {search.length > 1 && <h1>{search.length} matches</h1>}
+              {/* {search.length === 1 && <h1>{search.length} match</h1>} */}
+              {/* {search.length > 1 && <h1>{search.length} matches</h1>} */}
 
               <div className="row row-cols-1 row-cols-md-3 g-4 p-0">
                 {search.length > 0 ? (

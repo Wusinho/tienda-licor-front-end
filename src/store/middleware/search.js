@@ -16,11 +16,11 @@ const search =
     if (onStart) dispatch({ type: onStart });
     next(action);
 
-    let params = `cid=${ids}&`;
+    let params = ids.length > 0 ? `cid=${ids}&` : "";
+
     Object.entries(otherparams).forEach(([key, value]) => {
       if (key == "name" && value != "") {
-        console.log(`name value = ${value}`);
-        params += `search=${value}&`;
+        params += `name=${value}&`;
       } else if (key == "discount") {
         params += `discount=${value}&`;
       } else if (key == "price") {
@@ -28,11 +28,10 @@ const search =
       }
     });
 
-    const url = `${BASEURL}products?`;
+    const url = `${BASEURL}search?`;
 
     const getSearch = url + params;
 
-    console.log(getSearch);
     axios
       .get(getSearch, { mode: "cors" })
       .then((response) => {
