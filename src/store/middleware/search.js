@@ -10,7 +10,8 @@ const search =
   (action) => {
     if (action.type !== actions.searchCallBegan.type) return next(action);
 
-    const { params, BASEURL, onStart, onSuccess, onError } = action.payload;
+    const { checked, otherparams, BASEURL, onStart, onSuccess, onError } =
+      action.payload;
 
     if (onStart) dispatch({ type: onStart });
     next(action);
@@ -40,7 +41,7 @@ const search =
 
     const getSearch = search + string;
     // console.log(params);
-    console.log(getSearch);
+    // console.log(getSearch);
     axios
       .get(getSearch, { search: params }, { mode: "cors" })
       .then((response) => {

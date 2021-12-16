@@ -86,9 +86,10 @@ export const loadCategories = () =>
     onError: categoriesRequestFailed.type,
   });
 
-export const requestSearch = (params) =>
+export const requestSearch = (checked, otherparams) =>
   searchCallBegan({
-    params,
+    checked,
+    otherparams,
     BASEURL,
     onStart: searchRequested.type,
     onSuccess: searchReceived.type,

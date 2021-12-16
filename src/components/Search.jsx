@@ -11,14 +11,17 @@ const Search = ({ handleAddProduct }) => {
   const dispatch = useDispatch();
   const [checkedItems, setCheckedItems] = useState({
     "bebida energetica": false,
-    name: "",
     pisco: false,
     ron: false,
     bebida: false,
     snack: false,
     cerveza: false,
     vodka: false,
-    discount: true,
+  });
+
+  const [otherParams, setotherParams] = useState({
+    name: "",
+    discount: false,
     price: 20,
   });
 
@@ -31,16 +34,16 @@ const Search = ({ handleAddProduct }) => {
       [e.target.name]: e.target.checked,
     });
   };
-
+  console.log(categories);
   const handleChangeValue = (e) => {
-    setCheckedItems({
-      ...checkedItems,
+    setotherParams({
+      ...otherParams,
       [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = (e) => {
-    dispatch(requestSearch(checkedItems));
+    dispatch(requestSearch(checkedItems, otherParams));
     e.preventDefault();
   };
 
@@ -58,7 +61,7 @@ const Search = ({ handleAddProduct }) => {
                   id="formGroupExampleInput"
                   placeholder="Search for a Drink"
                   onChange={handleChangeValue}
-                  name="name"
+                  name={otherParams["name"]}
                 />
               </div>
               {categories.map((item) => (
@@ -82,7 +85,7 @@ const Search = ({ handleAddProduct }) => {
                   id="exampleCheck1"
                   onChange={handleChange}
                   name="discount"
-                  checked={checkedItems["discount"]}
+                  checked={otherParams["discount"]}
                 />
                 <label className="form-check-label">discount</label>
               </div>
@@ -92,7 +95,7 @@ const Search = ({ handleAddProduct }) => {
 
                 <div>
                   <span className="amount">
-                    Max price: ${checkedItems["price"] * 1000}
+                    Max price: ${otherParams["price"] * 1000}
                   </span>
                 </div>
                 <div className="mt-2">
