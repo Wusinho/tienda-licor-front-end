@@ -67,8 +67,8 @@ export const {
 
 export default productSlice.reducer;
 
-// const BASEURL = 'https://bsale-online-store.herokuapp.com/';
-const BASEURL = "http://localhost:4000/";
+const BASEURL = "https://bsale-online-store.herokuapp.com/";
+// const BASEURL = "http://localhost:4000/";
 
 export const loadProducts = () =>
   apiCallBegan({
