@@ -59,7 +59,7 @@ Every time there's a new search a request is sent to the '/search' endpoint thro
 
   ![image](./src/assets/Search.png)
 
-[Netlify-Deployment](https://61b6c8a4e5d4a6d1def961bb--competent-mcnulty-9b9b65.netlify.app/)
+[Netlify-Deployment](https://competent-mcnulty-9b9b65.netlify.app/)
 It may take some time for the page to load since Heroku also needs time to load the back-end.
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/27052ef2-c6a3-4b01-9a4d-f11438f88ff4/deploy-status)](https://app.netlify.com/sites/competent-mcnulty-9b9b65/deploys)
