@@ -1,4 +1,4 @@
-# Online Store - bsale
+# Online Store
 
 # Objectives
 
