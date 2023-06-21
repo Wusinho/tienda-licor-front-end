@@ -1,17 +1,13 @@
 # Online Store
 
-# Objectives
+## Objectives
 
-Build an online store that displays products grouped by category, generating separately backend (REST API) and frontend and using the database that is available to its development.
+This front-end project is integrated with the Ruby on Rails back-end API.
+- Dynamically rendering items from the server.
+- Advanced search functionality allows users to filter by categories, price, and name.
+- User-friendly interface enables effortless cart management, including adding, removing individual items, and clearing the entire cart.
 
-In addition, you have to add a search engine, which has to be implemented at the server, through an API Rest whose language and framework can be free choice.
-
-The front-end must be developed with vanilla javascript without any framework, the use of libraries, components
-specific, such as; bootstrap, material, Jquery, among others are allowed.
-
-Finally, make the application and the repository available with the code and the hosting.
-
-# Description of the Project
+## Description of the Project
 
 For the development of the project, the following tools were used:
 
