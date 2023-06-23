@@ -1,5 +1,8 @@
 # Online Store
 
+## Summary
+This front-end project seamlessly integrates with the Ruby on Rails back-end API, dynamically rendering items from the server. Advanced search functionality allows users to filter by categories, price, and name. Additionally, the user-friendly interface enables effortless cart management.
+
 ## Objectives
 
 This front-end project is integrated with the Ruby on Rails back-end API.
